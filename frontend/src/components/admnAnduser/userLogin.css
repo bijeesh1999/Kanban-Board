@@ -1,0 +1,43 @@
+.formikContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    .form{
+        display: flex;
+        gap: 2rem;
+        width: 25rem;
+        min-height: 26rem;
+        border: 1px solid;
+        flex-direction: column;
+        justify-content: center;
+        padding: 20px 0;
+        .fieldBlock{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            /* padding: 2rem 0; */
+            .textBlock{
+                margin: 0 1rem;
+                .textField{
+                    width: 100%;
+                }
+            }
+            .ButtonBlock{
+                display: flex;
+                .button{
+                    border-radius: 0;
+                    width: 100%;
+                    padding: 10px;
+                }
+            }
+        }
+        .navigation{
+            /* flex: 1; */
+            display: flex;
+            align-items: end;
+            justify-content: end;        }
+    }
+}

@@ -1,11 +1,13 @@
 const mongoose =require("mongoose")
 
 
-const kanbanSchema = mongoose.Schema({
+const taskSchema = mongoose.Schema({
 
     title: String,
     deSc: String,
     option:String,
+    projectId:String,
+    adminId:String,
     expDate:Date
 
 },{
@@ -13,4 +15,4 @@ const kanbanSchema = mongoose.Schema({
 })
 
 
-module.exports = mongoose.model("kanban" , kanbanSchema)
+module.exports = mongoose.model("task" , taskSchema)

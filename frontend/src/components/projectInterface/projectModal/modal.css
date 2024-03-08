@@ -1,0 +1,35 @@
+.formModal{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    gap: 10px;
+    form{
+        display: grid;
+        gap: 10px;
+        .formSubmit{
+            width: 5rem;
+            font-size: 14px;
+            padding: 5px 0;
+        }
+        input{
+            padding: 5px;
+            font-size: 12px;
+            outline: none;
+        }
+        textarea{
+            padding: 5px;
+            font-size: 12px;
+            outline: none;
+        }
+        .buttonCollection{
+            display: flex;
+            justify-content: end;
+        }
+    }
+    .cancelModal{
+        width: 5rem;
+        font-size: 14px;
+        padding: 5px 0;
+    }
+
+}

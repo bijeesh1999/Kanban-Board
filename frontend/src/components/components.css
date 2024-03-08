@@ -1,0 +1,34 @@
+.modalContainer{
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+    opacity: .5;
+    position: fixed;
+    top: 0;
+}
+.progerssForm{
+    width: 20rem;
+    height: 12rem;
+    padding: 1rem 2rem;
+    margin: auto;
+    background-color: white;
+    position: absolute;
+    top: calc(50% - 6rem);
+    left: calc(50% - 10rem);
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    .inputs{
+        display: grid;
+        flex: 1;
+        align-items: center;
+        input{
+            font-size: 20px;
+        }
+    }
+    .formHeader , .buttons{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
