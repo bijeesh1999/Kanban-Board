@@ -17,9 +17,19 @@ const getAllTask = async(req , res) => {
 const getMatchedTask = async (req, res) =>{
     try {
         const {id}=req.params;
-        const matchedTask=await task.aggregate([  { $match : { projectId : id } },
-            res.status(200).json(matchedTask)
-    ])
+        const matchedTask=await task.aggregate([  { $match : { projectId : id } }])
+        // const progress= await task.aggregate([
+        //     {
+        //       $lookup: {
+        //         from: "stages",
+        //         localField: "projectId",
+        //         foreignField: "projectId",
+        //         as: "result"
+        //       }
+        //     }
+        //   ])
+        //   console.log(progressResults);
+       await res.status(200).json(matchedTask)
         
     } catch (error) {
         res.status(400).json(error)

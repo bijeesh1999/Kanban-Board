@@ -8,6 +8,13 @@ export const getAllTask = createAsyncThunk("get/getAllData", async () => {
   }
 });
 
+export const getMatcheTasks = createAsyncThunk("get/matchTask" , async (id) =>{
+  const res = await axios.get(`http://localhost:8089/task/match/${id}`);
+  if (res) {
+    return res.data;
+  }
+})
+
 export const postTask = createAsyncThunk("post/postData", async (data) => {
   const res = await axios.post("http://localhost:8089/task", data);
   if (res) {

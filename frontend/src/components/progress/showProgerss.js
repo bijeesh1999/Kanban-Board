@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllTask, getOneTask, putOneTask } from "../../redux/task/taskApi";
-import {getAllProgress,deleteOneProgress,getOneProgress} from "../../redux/progress/progressApi";
+import { getMatcheTasks, getOneTask, putOneTask } from "../../redux/task/taskApi";
+import {getMatchProgress,deleteOneProgress,getOneProgress} from "../../redux/progress/progressApi";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import DriveFileRenameOutlineSharpIcon from "@mui/icons-material/DriveFileRenameOutlineSharp";
 import DeleteConfirm from "../projectInterface/projectModal/deleteModal";
@@ -9,7 +9,7 @@ import {useParams} from "react-router-dom"
 import AddTask from "./addProgress";
 import "../../App.css";
 
-function ShowProgress({ setModal, setEdit }) {
+function ShowProgress({ setModal, setEdit}) {
   const dispatch = useDispatch();
   const projectId= useParams().id
   const [delId, setDelId] = useState("");
@@ -17,15 +17,15 @@ function ShowProgress({ setModal, setEdit }) {
   const [progres, setProgres] = useState([]);
   const [data, setData] = useState([]);
 
-  const allData = useSelector((state) => state.datas.allData);
-  const progreses = useSelector((state) => state?.progress?.allProgress);
+  const allData = useSelector((state) => state.datas.matchTasks);
+  const progreses = useSelector((state) => state?.progress?.matchProgress);
   const oneProgress = useSelector((state) => state?.progress?.singleProgress);
 
   // console.log(projectId);
 
   useEffect(() => {
-    dispatch(getAllTask());
-    dispatch(getAllProgress());
+    dispatch(getMatcheTasks(projectId));   /* here is getting matched task usng project id */
+    dispatch(getMatchProgress(projectId));  /* here is getting matched progress using project id  */
   }, []);
 
   useEffect(() => {
@@ -44,10 +44,10 @@ function ShowProgress({ setModal, setEdit }) {
     setProgress(true);
   };
 
-  const handleDelete = async (id) => {
-    await dispatch(deleteOneProgress(id));
-    await dispatch(getAllProgress());
-  };
+  // const handleDelete = async (id) => {
+  //   await dispatch(deleteOneProgress(id));
+  //   await dispatch(getMatchProgress(projectId));
+  // };
 
   // pending arangements =================
   const onDragEnd = async (result) => {
@@ -58,7 +58,7 @@ function ShowProgress({ setModal, setEdit }) {
 
     console.log("destid:", option, "dragebleID:", dataId);
     await dispatch(putOneTask({ option: option, id: dataId }));
-    await dispatch(getAllTask());
+    await dispatch(getMatcheTasks(projectId));
   };
 
   // ===========================================

@@ -12,6 +12,22 @@ const getAllProgress = async(req , res) => {
 
 }
 
+const getMatchProgress = async (req , res) =>{
+    const {id} = req.params;
+    const MatchProgress= await stage.aggregate([
+        {
+            $match:{
+                projectId:id
+            }
+        }
+    ])
+    if(MatchProgress){
+        res.status(200).json(MatchProgress)
+    }else{
+        res.status(400).json("no data found")
+    }
+}
+
 
 const postProgress = async(req , res) => {
 
@@ -73,4 +89,4 @@ const getOneProgress = async(req , res) => {
 }
 
 
-module.exports = {getAllProgress , postProgress , putOneProgress , deleteProgress , getOneProgress}
+module.exports = {getAllProgress , postProgress , putOneProgress , deleteProgress , getOneProgress , getMatchProgress}

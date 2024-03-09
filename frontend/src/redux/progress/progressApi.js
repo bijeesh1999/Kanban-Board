@@ -2,11 +2,18 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const getAllProgress = createAsyncThunk("get/getAllProgress", async () => {
-  const res = await axios.get("http://localhost:8089/progres");
+  const res = await axios.get(`http://localhost:8089/progres`);
   if (res) {
     return res.data;
   }
 });
+
+export const getMatchProgress = createAsyncThunk("get/matchProgress" , async (id) =>{
+  const res = await axios.get(`http://localhost:8089/progres/match/${id}`)
+  if(res){
+    return res.data
+  }
+})
 
 export const postProgress = createAsyncThunk("post/postProgress", async (data) => {
     console.log(data);

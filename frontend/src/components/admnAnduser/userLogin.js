@@ -38,7 +38,7 @@ function UserLogin() {
             dispatch(userLogin(values));
             setTimeout(() => {
                navigate("/")
-            }, 1000);
+            }, 2000);
         }}
       >
         {(props) => (

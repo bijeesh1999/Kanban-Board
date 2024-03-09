@@ -11,7 +11,7 @@ Router.route('/').get(getAllTask).post(postTask);
 
 Router.route("/:id").get(getOneTask).put(putOneTask).delete(deleteOneTask);
 
-Router.route("/tasks/:id").get(getMatchedTask)
+Router.route("/match/:id").get(getMatchedTask)
 
 
 module.exports=Router

@@ -34,7 +34,7 @@ function CanbanBoard() {
           </button>
         </div>
       </header>
-      <ShowProgress setModal={setModal} setEdit={setEditBtn} />
+      <ShowProgress setModal={setModal} setEdit={setEditBtn} id={id}/>
       {progerss ? (
         <AddProgress setProgress={setProgress} singeleProgress={singeleProgress} id={id} adminId={adminId} />
       ) : null}

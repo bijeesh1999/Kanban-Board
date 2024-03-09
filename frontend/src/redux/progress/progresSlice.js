@@ -1,15 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {getAllProgress , postProgress , putOneProgress , deleteOneProgress , getOneProgress} from "./progressApi"
-
+import {
+  getAllProgress,
+  postProgress,
+  putOneProgress,
+  deleteOneProgress,
+  getOneProgress,
+  getMatchProgress,
+} from "./progressApi";
 
 const progresSlice = createSlice({
   name: "Datas",
   initialState: {
     allProgress: [],
-    post:[],
-    singleProgress:[],
-    delete:[],
-    edited:[],
+    matchProgress: [],
+    post: [],
+    singleProgress: [],
+    delete: [],
+    edited: [],
     error: [],
     status: "idle",
   },
@@ -28,7 +35,21 @@ const progresSlice = createSlice({
         state.error = action.error.message;
       })
 
-// =====================================================
+      // =====================================================
+
+      .addCase(getMatchProgress.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(getMatchProgress.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.matchProgress = action.payload;
+      })
+      .addCase(getMatchProgress.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      })
+
+      // =====================================================
       .addCase(postProgress.pending, (state) => {
         state.status = "loading";
       })
@@ -41,7 +62,7 @@ const progresSlice = createSlice({
         state.error = action.error.message;
       })
 
-    //   =====================================================
+      //   =====================================================
 
       .addCase(putOneProgress.pending, (state) => {
         state.status = "loading";
@@ -55,7 +76,6 @@ const progresSlice = createSlice({
         state.error = action.error.message;
       })
 
-
       .addCase(getOneProgress.pending, (state) => {
         state.status = "loading";
       })
@@ -68,7 +88,6 @@ const progresSlice = createSlice({
         state.error = action.error.message;
       })
 
-
       .addCase(deleteOneProgress.pending, (state) => {
         state.status = "loading";
       })
@@ -79,7 +98,7 @@ const progresSlice = createSlice({
       .addCase(deleteOneProgress.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
-      })
+      });
   },
 });
 
