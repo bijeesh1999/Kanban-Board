@@ -1,0 +1,33 @@
+.head {
+  display: flex;
+  align-items: flex-end;
+}
+
+.shareTaskModal {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  .ant-modal-content {
+    background-color: #41423e !important;
+    border-radius: 4px;
+    .ant-modal-close-x {
+      color: aliceblue;
+    }
+    .head {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+      align-items: center;
+    }
+    .ant-modal-body {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .taskAssign {
+        display: flex;
+        gap: 2rem;
+      }
+    }
+  }
+}

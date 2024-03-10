@@ -24,3 +24,12 @@ export const userRegister = createAsyncThunk("pot/userRegister", async(data) => 
         console.log(isRegister);
     }
 })
+
+
+export const allUsers = createAsyncThunk ("get/users", async()=>{
+
+    const users = await axios.get("http://localhost:8089/user")
+    if(users){
+        return users.data
+    }
+})

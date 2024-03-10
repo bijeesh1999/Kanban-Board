@@ -5,6 +5,7 @@ import {getMatchProgress,deleteOneProgress,getOneProgress} from "../../redux/pro
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import DriveFileRenameOutlineSharpIcon from "@mui/icons-material/DriveFileRenameOutlineSharp";
 import DeleteConfirm from "../projectInterface/projectModal/deleteModal";
+import ShareTask from "../share/taskShare";
 import {useParams} from "react-router-dom"
 import AddTask from "./addProgress";
 import "../../App.css";
@@ -111,7 +112,10 @@ function ShowProgress({ setModal, setEdit}) {
                                 }`}
                               >
                                 <div className="todo taskBlock" key={index}>
+                                <div className="shareTask">
                                   <h4>{data.title}</h4>
+                                  <ShareTask taskId={data._id} projectId={projectId}/>
+                                </div>
                                   <p className="tasks">{data.deSc}</p>
                                   <div className="dueDate">
                                     dueDate: {data.expDate?.split("T")[0]}

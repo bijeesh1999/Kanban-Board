@@ -198,7 +198,11 @@ header {
 li{
   cursor: pointer;
 }
-
+.shareTask{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 
 

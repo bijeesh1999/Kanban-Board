@@ -96,6 +96,17 @@ const userLogin = async (req,res) =>{
     }}
 
 
+const getAllUsers = async (req,res) =>{
 
-module.exports = {userRegister , userLogin}
+    const Users = await user.find()
+    if(Users){
+        res.status(200).json(Users)
+    }else{
+        res.status(400).json("user Not found")
+    }
+}
+
+
+
+module.exports = {userRegister , userLogin , getAllUsers}
 
