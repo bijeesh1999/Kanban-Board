@@ -13,7 +13,7 @@ function SideBar({addEmployee}) {
       <div className="sideBar">
         <button>assign task</button>
         {addEmployee?<button>add New Employee</button>:null}
-        <button onClick={()=>navigate(`/projectTasks/${userId}`)}>view my Task</button>
+        <button onClick={()=>navigate(`/assingnedTasks`)}>view my Task</button>
         <button>employees</button>
       </div>
     </>

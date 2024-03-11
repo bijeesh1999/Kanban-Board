@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import ShareIcon from '@mui/icons-material/Share';
 import { UseDispatch, useDispatch, useSelector } from 'react-redux';
 import { allUsers } from '../../redux/users/userApi';
+import { postAssignedTask } from '../../redux/taskShare/shareTaskApi';
 import { useFormik } from 'formik';
 import { Button, Modal } from 'antd';
 import "./taskshare.css"
-import { formToJSON } from 'axios';
 
 const ShareTask = ({taskId , projectId}) => {
     const dispatch=useDispatch();
@@ -31,7 +31,8 @@ const ShareTask = ({taskId , projectId}) => {
       empId:"",
     },
     onSubmit: values =>{
-      console.log(values);
+      dispatch(postAssignedTask(values))
+      setOpen(false)
     }})
 
 

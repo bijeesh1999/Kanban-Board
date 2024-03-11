@@ -45,13 +45,9 @@ function ShowProgress({ setModal, setEdit}) {
     setProgress(true);
   };
 
-  // const handleDelete = async (id) => {
-  //   await dispatch(deleteOneProgress(id));
-  //   await dispatch(getMatchProgress(projectId));
-  // };
-
   // pending arangements =================
   const onDragEnd = async (result) => {
+
     if (!result.destination) return;
 
     let option = result.destination?.droppableId;
